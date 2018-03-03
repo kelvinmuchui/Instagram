@@ -20,7 +20,7 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 public class BottomNavigationViewHelper {
     private static final String TAG = "BottomNavigationViewHelper: Setting upp navigation view";
-
+                //setting up the bottom navigation animation
     public static void setupBottomNavigationView(BottomNavigationViewEx bottomNavigationViewEx){
         bottomNavigationViewEx.enableAnimation(false);
         bottomNavigationViewEx.enableItemShiftingMode(false);
@@ -28,6 +28,8 @@ public class BottomNavigationViewHelper {
         bottomNavigationViewEx.setTextVisibility(false);
 
     }
+
+    //Method to help the application to navigate to other fragments
     public static void enableNavigation(final Context context, BottomNavigationViewEx view){
 
         view.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

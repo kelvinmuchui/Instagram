@@ -36,10 +36,10 @@
                     android:layout_marginLeft="25dp">
 
                     <!--change to circle image-->
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:id="@+id/profileImage"
+                        android:id="@+id/profile_photo"
                         android:layout_centerVertical="true"/>
 
 

@@ -4,6 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.example.kelvin.instagramclone.Profile.EditProfileFragment;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,14 +14,14 @@ import java.util.List;
  * Created by kelvin on 2/25/18.
  */
 
-public class SectionsStateAdpter extends FragmentStatePagerAdapter {
+public class SectionsStatePagerAdpter extends FragmentStatePagerAdapter {
 
     private final List<Fragment> mFragementList = new ArrayList<>();
     private  final HashMap<Fragment,Integer >  mFragments = new HashMap<>();
     private final HashMap<String , Integer> mFragmentNumbers = new HashMap<>();
     private final HashMap<Integer, String> mFragmentNames = new HashMap<>();
 
-    public SectionsStateAdpter(FragmentManager fm) {
+    public SectionsStatePagerAdpter(FragmentManager fm) {
         super(fm);
     }
 

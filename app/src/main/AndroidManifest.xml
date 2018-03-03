@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.kelvin.instagramclone" >
+    <uses-permission
+        android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.google.andriod.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="com.google.andriod.providers.gsf.permission.WRITE_GSERVICES"/>
 
     <application
         android:allowBackup="true"
@@ -21,7 +25,8 @@
         <activity android:name=".Likes.LikesActivity"></activity>
         <activity android:name=".Profile.ProfileActivity"></activity>
         <activity android:name=".Profile.AccountSettingsActivity"></activity>
-
+        <activity android:name=".Login.LoginActivity"></activity>
+        <activity android:name=".Login.RegisterActivity"></activity>
     </application>
 
 </manifest>
