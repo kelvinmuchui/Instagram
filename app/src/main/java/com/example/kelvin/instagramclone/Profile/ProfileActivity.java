@@ -1,5 +1,6 @@
 package com.example.kelvin.instagramclone.Profile;
 
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -42,90 +43,99 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        setupToolbar();
-        setUpBottomNavigationView();
-
-        setupActivityWidgets();
-        setProfileImage();
-        tempGridSetup();
-
-
-    }
-    private void tempGridSetup(){
-        ArrayList<String> imgURLs = new ArrayList<>();
-
-
-        setImageGrid(imgURLs);
-     }
-
-    private void setImageGrid(ArrayList<String> imgURLs ){
-        GridView gridView = findViewById(R.id.gridView);
-        int gridWidth = getResources().getDisplayMetrics().widthPixels;
-        int ImageWidth = gridWidth/NUM_GRID_COLUMNS;
-        gridView.setColumnWidth(ImageWidth);
-
-        GridImageAdapter adapter = new GridImageAdapter(mcontext, R.layout.layout_grid_imageview,"",imgURLs);
-        gridView.setAdapter(adapter );
-    }
-
-    private void setProfileImage(){
-
-        String imgUrl = "goo.gl/images/oU9xVu";
-        UniversalImageLoader.setImage(imgUrl, profilePhoto, mProgressBar, "https://");
+//        setupToolbar();
+//        setUpBottomNavigationView();
+//
+//        setupActivityWidgets();
+//        setProfileImage();
+//        tempGridSetup();
 
 
     }
 
-    private void setupActivityWidgets(){
-        mProgressBar = findViewById(R.id.profileProgressBar);
-        mProgressBar.setVisibility(View.GONE);
+    private void init(){
+        Log.d(TAG, "init: inflating " + getString(R.string.profile_fragment));
 
-        profilePhoto = findViewById(R.id.profile_photo);
-
+        ProfileFragment fragment = new ProfileFragment();
+        android.support.v4.app.FragmentTransaction transaction = ProfileActivity.this.getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.container, fragment);
+        transaction.addToBackStack(getString(R.string.profile_fragment));
     }
-
-    private void backButton(){
-
-        ImageView backarrow =(ImageView) findViewById(R.id.backarrow);
-        backarrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(TAG, "onClick: navigating back to profileActivity");
-                finish();
-            }
-        });
-    }
-
-    private void setupToolbar(){
-        Toolbar toolbar = findViewById(R.id.profileToolbar);
-        setSupportActionBar(toolbar);
-
-        ImageView  profileMenu = (ImageView) findViewById(R.id.profileMenu);
-        profileMenu.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Log.d(TAG, "onClick: navigatting to account settings");
-                    Intent intent = new Intent(mcontext, AccountSettingsActivity.class);
-                    startActivity(intent);
-                }
-            });
-
-
-    }
-    /**
-     *Bottom navigation setup
-     *
-     */
-    private void setUpBottomNavigationView(){
-        Log.d(TAG, "setUpBottomNavigationView: setting up bottom navigation view");
-        BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavViewBar);
-        BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
-        BottomNavigationViewHelper.enableNavigation(mcontext, bottomNavigationViewEx);
-        Menu menu = bottomNavigationViewEx.getMenu();
-        MenuItem menuItem = menu.getItem(Activity_Num);
-        menuItem.setChecked(true);
-
-    }
+//    private void tempGridSetup(){
+//        ArrayList<String> imgURLs = new ArrayList<>();
+//
+//
+//        setImageGrid(imgURLs);
+//     }
+//
+//    private void setImageGrid(ArrayList<String> imgURLs ){
+//        GridView gridView = findViewById(R.id.gridView);
+//        int gridWidth = getResources().getDisplayMetrics().widthPixels;
+//        int ImageWidth = gridWidth/NUM_GRID_COLUMNS;
+//        gridView.setColumnWidth(ImageWidth);
+//
+//        GridImageAdapter adapter = new GridImageAdapter(mcontext, R.layout.layout_grid_imageview,"",imgURLs);
+//        gridView.setAdapter(adapter );
+//    }
+//
+//    private void setProfileImage(){
+//
+//        String imgUrl = "goo.gl/images/oU9xVu";
+//        UniversalImageLoader.setImage(imgUrl, profilePhoto, mProgressBar, "https://");
+//
+//
+//    }
+//
+//    private void setupActivityWidgets(){
+//        mProgressBar = findViewById(R.id.profileProgressBar);
+//        mProgressBar.setVisibility(View.GONE);
+//
+//        profilePhoto = findViewById(R.id.profile_photo);
+//
+//    }
+//
+//    private void backButton(){
+//
+//        ImageView backarrow =(ImageView) findViewById(R.id.backarrow);
+//        backarrow.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Log.d(TAG, "onClick: navigating back to profileActivity");
+//                finish();
+//            }
+//        });
+//    }
+//
+//    private void setupToolbar(){
+//        Toolbar toolbar = findViewById(R.id.profileToolbar);
+//        setSupportActionBar(toolbar);
+//
+//        ImageView  profileMenu = (ImageView) findViewById(R.id.profileMenu);
+//        profileMenu.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Log.d(TAG, "onClick: navigatting to account settings");
+//                    Intent intent = new Intent(mcontext, AccountSettingsActivity.class);
+//                    startActivity(intent);
+//                }
+//            });
+//
+//
+//    }
+//    /**
+//     *Bottom navigation setup
+//     *
+//     */
+//    private void setUpBottomNavigationView(){
+//        Log.d(TAG, "setUpBottomNavigationView: setting up bottom navigation view");
+//        BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavViewBar);
+//        BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
+//        BottomNavigationViewHelper.enableNavigation(mcontext, bottomNavigationViewEx);
+//        Menu menu = bottomNavigationViewEx.getMenu();
+//        MenuItem menuItem = menu.getItem(Activity_Num);
+//        menuItem.setChecked(true);
+//
+//    }
 
 
 }
