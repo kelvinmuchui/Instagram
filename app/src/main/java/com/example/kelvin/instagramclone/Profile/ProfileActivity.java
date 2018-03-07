@@ -49,9 +49,11 @@ public class ProfileActivity extends AppCompatActivity {
 //        setupActivityWidgets();
 //        setProfileImage();
 //        tempGridSetup();
+        init();
 
 
     }
+    //initializting fragment in profile
 
     private void init(){
         Log.d(TAG, "init: inflating " + getString(R.string.profile_fragment));
@@ -60,6 +62,7 @@ public class ProfileActivity extends AppCompatActivity {
         android.support.v4.app.FragmentTransaction transaction = ProfileActivity.this.getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.container, fragment);
         transaction.addToBackStack(getString(R.string.profile_fragment));
+        transaction.commit();
     }
 //    private void tempGridSetup(){
 //        ArrayList<String> imgURLs = new ArrayList<>();
