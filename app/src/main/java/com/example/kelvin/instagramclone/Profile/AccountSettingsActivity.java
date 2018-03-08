@@ -3,6 +3,7 @@ package com.example.kelvin.instagramclone.Profile;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -18,7 +19,15 @@ import android.widget.RelativeLayout;
 
 import com.example.kelvin.instagramclone.R;
 import com.example.kelvin.instagramclone.utils.BottomNavigationViewHelper;
+import com.example.kelvin.instagramclone.utils.FirebaseMethods;
 import com.example.kelvin.instagramclone.utils.SectionsStatePagerAdpter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 import java.util.ArrayList;
@@ -35,6 +44,7 @@ public class AccountSettingsActivity extends AppCompatActivity {
     private final  int Activity_Num = 4;
     private ViewPager mViewPager;
     private RelativeLayout mRelativeLayout;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,5 +126,7 @@ public class AccountSettingsActivity extends AppCompatActivity {
         menuItem.setChecked(true);
 
     }
+
 }
+
 
