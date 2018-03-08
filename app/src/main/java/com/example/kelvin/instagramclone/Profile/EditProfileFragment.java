@@ -213,6 +213,36 @@ public class EditProfileFragment extends Fragment implements
 
                     }
 
+        /**
+         * change the rest of the setting that do not require uniqueness
+         */
+        if(!mUserSettings.getSettings().getDisplay_name().equals(displayName)){
+                        //update displayname
+
+                        mfirebaseMethods.updateUserAccountSettings(displayName,null,null);
+
+                    }
+                    if(!mUserSettings.getSettings().getWebsite().equals(website)){
+                        //update website
+                        mfirebaseMethods.updateUserAccountSettings(null,website,null);
+
+
+
+                    }
+                    if(!mUserSettings.getSettings().getDescription().equals(description)){
+                        //update description
+                        mfirebaseMethods.updateUserAccountSettings(null,null,description);
+
+
+
+
+                    }
+//                    if(!mUserSettings.getSettings().getPhoneN.equals(displayName)){
+//                        //update displayname
+//
+//
+//                    }
+
 
                 }
 

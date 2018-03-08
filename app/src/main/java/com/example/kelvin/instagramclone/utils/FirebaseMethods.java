@@ -46,6 +46,45 @@ public class FirebaseMethods {
 
     }
 
+    /***
+     * updating user_accout_settings for current user
+     * @param displayName
+     * @param website
+     * @param description
+     */
+
+    public void updateUserAccountSettings(String displayName, String website, String description){
+
+
+        Log.d(TAG, "updateUserAccountSettings:  updating user account settings");
+
+        if(displayName != null) {
+            mRef.child(mContext.getString(R.string.dbname_user_account_settings))
+                    .child(userID)
+                    .child(mContext.getString(R.string.field_display_name))
+                    .setValue(displayName);
+        }
+        if(website != null) {
+            mRef.child(mContext.getString(R.string.dbname_user_account_settings))
+                    .child(userID)
+                    .child(mContext.getString(R.string.field_website))
+                    .setValue(website);
+        }
+        if(description != null) {
+            mRef.child(mContext.getString(R.string.dbname_user_account_settings))
+                    .child(userID)
+                    .child(mContext.getString(R.string.field_description))
+                    .setValue(description);
+        }
+//        mRef.child(mContext.getString(R.string.dbname_user_account_settings))
+//                .child(userID)
+//                .child(mContext.getString(R.string.field_phone_number))
+//                .setValue();
+
+
+
+    }
+
     /**
      * update username in the users and user_account_settings node
      * @param username
